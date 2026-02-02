@@ -62,3 +62,17 @@ fixer.process_sequence(
 
 > **User**: "I copied a sequence to 'MyShortSeq' but everything is red. Fix it."
 > **AI**: Generates code to repair `MyShortSeq`.
+
+## Workflow (Step-by-Step)
+
+Follow these steps to repair a sequence in your company project:
+
+1.  **Open the Level**: In Unreal Engine, open the Level that acts as the context for the Sequence.
+    *   *Why?* The script fixes broken bindings by searching for matching Actors in the *currently open world*.
+2.  **Ask the Bot**: In Discord/Chat, ask:
+    *   `@ue-sequence-fixer Fix the bindings in /Game/Path/To/YourSequence`
+3.  **Run the Code**:
+    *   The bot will generate a Python script block.
+    *   **Copy** the entire block.
+    *   Paste it into the **Unreal Engine Output Log** (ensure it's in Python mode) and hit Enter.
+4.  **Verify**: Check the Output Log for "FIXED" messages and open your Sequence to confirm bindings are restored.
