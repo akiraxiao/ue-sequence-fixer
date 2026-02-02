@@ -33,14 +33,11 @@ If the user says: "Fix the bindings in /Game/Cinematics/MyBrokenSeq"
 import sys
 import os
 
-# 自动定位当前 Skill 目录下的 scripts 文件夹
-# (假设此代码是在 UE Python 环境中运行，用户需手动把 skill 目录加到 sys.path 或指定绝对路径)
-# 这里为了通用性，我们提示用户替换为实际安装路径，或者 OpenClaw 自动注入路径
-# For portable usage:
-# script_dir = r"C:\path\to\ue-sequence-fixer\scripts" 
+# Dynamic path resolution for OpenClaw standard install
+# This works if the skill is installed in the default location on any machine
+home_dir = os.path.expanduser("~")
+script_path = os.path.join(home_dir, "clawd", "skills", "ue-sequence-fixer", "scripts")
 
-# 在 OpenClaw 本地环境中，通常路径是：
-script_path = r"C:\Users\akiraxiao\clawd\skills\ue-sequence-fixer\scripts"
 if script_path not in sys.path:
     sys.path.append(script_path)
 
